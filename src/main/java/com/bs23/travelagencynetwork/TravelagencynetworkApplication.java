@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TravelagencynetworkApplication {
 	private static final Logger logger = LogManager.getLogger(TravelagencynetworkApplication.class);
 	public static void main(String[] args) {
-		logger.info("this is mahtab uddin shahed");
 		SpringApplication.run(TravelagencynetworkApplication.class, args);
 	}
 }
