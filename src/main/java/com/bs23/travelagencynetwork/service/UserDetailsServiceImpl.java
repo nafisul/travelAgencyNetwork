@@ -3,6 +3,8 @@ package com.bs23.travelagencynetwork.service;
 import com.bs23.travelagencynetwork.entity.Role;
 import com.bs23.travelagencynetwork.entity.User;
 import com.bs23.travelagencynetwork.repository.UserRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,6 +19,8 @@ import java.util.Set;
 
 @Service("custom")
 public class UserDetailsServiceImpl implements UserDetailsService {
+
+    private static final Logger logger = LogManager.getLogger(UserDetailsServiceImpl.class);
 
     @Autowired
     private UserRepository userRepository;

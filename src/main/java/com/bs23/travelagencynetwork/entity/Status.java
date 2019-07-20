@@ -9,7 +9,7 @@ public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "status_id")
-    private int id;
+    private Long id;
 
     @Column(name = "user_status")
     private String post;
@@ -45,11 +45,11 @@ public class Status {
         this.user = user;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

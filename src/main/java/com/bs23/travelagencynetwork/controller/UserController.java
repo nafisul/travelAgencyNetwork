@@ -3,6 +3,8 @@ package com.bs23.travelagencynetwork.controller;
 import com.bs23.travelagencynetwork.entity.User;
 import com.bs23.travelagencynetwork.service.UserService;
 import com.bs23.travelagencynetwork.validator.UserValidator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
+
+    private static final Logger logger = LogManager.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
@@ -38,11 +42,6 @@ public class UserController {
 
         userService.save(user);
         return "redirect:/welcome";
-    }
-
-    @GetMapping({"/", "/welcome"})
-    public String welcome(Model model) {
-        return "welcome";
     }
 
     @GetMapping("/login")
