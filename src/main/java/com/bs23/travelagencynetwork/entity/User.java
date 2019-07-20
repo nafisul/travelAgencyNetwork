@@ -10,7 +10,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private int id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -28,6 +28,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Status> statuses;
 
+    @Transient
+    private String passwordConfirm;
+
     public User(){}
 
     public User(String name, String email, String password, Set<Role> roles, Set<Status> statuses) {
@@ -38,11 +41,11 @@ public class User {
         this.statuses = statuses;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -84,5 +87,13 @@ public class User {
 
     public void setStatuses(Set<Status> statuses) {
         this.statuses = statuses;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 }
