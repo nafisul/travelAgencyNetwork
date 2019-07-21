@@ -12,8 +12,8 @@ Please read the following steps to run the application
 
 Email & Password for the provided DB
 ===========================================
-Email: shahed@gmail.com
+Email: shahed@gmail.com |
 Password: 123
 
-Email: tanvir@gmail.com
+Email: tanvir@gmail.com |
 Password: 123
