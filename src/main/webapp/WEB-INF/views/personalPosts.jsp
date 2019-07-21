@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Create an account</title>
+    <title>My Posts</title>
 
     <link href="/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
@@ -15,43 +15,45 @@
 <body>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <td>SL</td>
-                        <td>Post</td>
-                        <td>Check In</td>
-                        <td>Post Privacy</td>
-                        <td>Posted At</td>
-                        <td>Edit Post</td>
-                        <td>Change Privacy</td>
-                    </tr>
-                </thead>
+    <div class="col-md-4">
+        <jsp:include page="nav.jsp"></jsp:include>
+    </div>
 
-                <tbody>
-                    <c:forEach var="post" items="${personalPostList}" varStatus="counter">
-                        <tr>
-                            <td>${counter.count}</td>
-                            <td>${post.getPost()}</td>
-                            <td>${post.getLocation()}</td>
-                            <td><c:choose>
-                                <c:when test="${post.getPostPrivacy() == 0}">
-                                    Private
-                                </c:when>
-                                <c:otherwise>
-                                    Public
-                                </c:otherwise>
-                            </c:choose></td>
-                            <td>${post.getPostedAt()}</td>
-                            <td><a href="/editPost/${post.getPostId()}">Edit</a></td>
-                            <td><a href="/changePrivacy/${post.getPostId()}">Change</a></td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
+    <div class="col-md-8">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>SL</td>
+                    <td>Post</td>
+                    <td>Check In</td>
+                    <td>Post Privacy</td>
+                    <td>Posted At</td>
+                    <td>Edit Post</td>
+                    <td>Change Privacy</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <c:forEach var="post" items="${personalPostList}" varStatus="counter">
+                    <tr>
+                        <td>${counter.count}</td>
+                        <td>${post.getPost()}</td>
+                        <td>${post.getLocation()}</td>
+                        <td><c:choose>
+                            <c:when test="${post.getPostPrivacy() == 0}">
+                                Private
+                            </c:when>
+                            <c:otherwise>
+                                Public
+                            </c:otherwise>
+                        </c:choose></td>
+                        <td>${post.getPostedAt()}</td>
+                        <td><a href="/editPost/${post.getPostId()}">Edit</a></td>
+                        <td><a href="/changePrivacy/${post.getPostId()}">Change</a></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
     </div>
 </div>
 </body>

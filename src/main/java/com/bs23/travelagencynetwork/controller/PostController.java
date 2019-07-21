@@ -29,9 +29,10 @@ public class PostController {
     private PostService postService;
 
     @GetMapping({"/","welcome"})
-    public String index(HttpServletRequest request){
+    public String index(HttpServletRequest request, Model model){
         logger.info("welcome controller");
         List<StatusDTO> statusDTOList = postService.getAllPublicPost(request);
+        model.addAttribute("statusList",statusDTOList);
         return "welcome";
     }
 

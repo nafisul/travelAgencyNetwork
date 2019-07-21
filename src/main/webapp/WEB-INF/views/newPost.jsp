@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Create an account</title>
+    <title>New Post</title>
 
     <link href="/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
@@ -16,39 +16,44 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <h5>New Post</h5>
-            <form action = "/newPost" method="post">
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <div class="form-group">
-                <label for="post">Write Post</label>
-                <textarea class="form-control" type="text" name="post" id="post"></textarea>
-                <span class="alert-danger">${nullPost}</span>
-            </div>
+        <div class="col-md-4">
+            <jsp:include page="nav.jsp"></jsp:include>
+        </div>
+        <div class="col-md-8">
+            <div class="right-side">
+                <h5>New Post</h5>
+                <form action = "/newPost" method="post">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <div class="form-group">
+                        <label for="post">Write Post</label>
+                        <textarea class="form-control" type="text" name="post" id="post"></textarea>
+                        <span class="alert-danger">${nullPost}</span>
+                    </div>
 
-            <div class="form-group">
-                <label for="location">Check In</label>
-                <select name="location" id="location" class="form-control">
-                    <option value="">-------</option>
-                    <c:forEach var="location" items="${locationList}">
-                        <option value="${location.getId()}">${location.getLocation()}</option>
-                    </c:forEach>
-                </select>
-                <span class="alert-danger">${nullLocation}</span>
-            </div>
+                    <div class="form-group">
+                        <label for="location">Check In</label>
+                        <select name="location" id="location" class="form-control">
+                            <option value="">-------</option>
+                            <c:forEach var="location" items="${locationList}">
+                                <option value="${location.getId()}">${location.getLocation()}</option>
+                            </c:forEach>
+                        </select>
+                        <span class="alert-danger">${nullLocation}</span>
+                    </div>
 
-            <div class="form-group">
-                <label for="postPrivacy">Post Privacy</label>
-                <select class="form-control" name="postPrivacy" id="postPrivacy">
-                    <option value="">---------</option>
-                    <option value="0">Private</option>
-                    <option value="1">Public</option>
-                </select>
-                <span class="alert-danger">${nullPrivacy}</span>
-            </div>
+                    <div class="form-group">
+                        <label for="postPrivacy">Post Privacy</label>
+                        <select class="form-control" name="postPrivacy" id="postPrivacy">
+                            <option value="">---------</option>
+                            <option value="0">Private</option>
+                            <option value="1">Public</option>
+                        </select>
+                        <span class="alert-danger">${nullPrivacy}</span>
+                    </div>
 
-            <input type="submit" value="Post" name="savePost" id="savePost">
-            </form>
+                    <input type="submit" value="Post" name="savePost" id="savePost">
+                </form>
+            </div>
         </div>
     </div>
 </div>

@@ -89,8 +89,21 @@ public class PostServiceImpl implements PostService {
         List<Status> userSpecificStatusList = postRepository.findByUserWithPrivate(user);
         List<Status> publicStatusList = postRepository.getAllPublicPost();
 
+
         publicStatusList.addAll(userSpecificStatusList);
         List<StatusDTO> statusDTOList = new ArrayList<StatusDTO>();
+
+        for(Status status:publicStatusList){
+            StatusDTO statusDTO = new StatusDTO();
+            statusDTO.setLocation(status.getLocation().getLocation());
+            statusDTO.setPost(status.getPost());
+            statusDTO.setPostId(status.getId());
+            statusDTO.setUserName(status.getUser().getName());
+            statusDTO.setPostPrivacy(status.getPostPrivacy());
+            statusDTO.setPostedAt(status.getPostedAt());
+
+            statusDTOList.add(statusDTO);
+        }
 
         return statusDTOList;
     }

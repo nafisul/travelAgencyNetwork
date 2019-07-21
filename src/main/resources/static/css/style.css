@@ -1,3 +1,40 @@
 h1{
     color: red;
 }
+.single-question-box {
+    border: 1px dashed #ddd;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+.single-question-box li {
+    line-height: 36px;
+    font-size: 16px;
+    list-style: none;
+}
+.single-question-box li i {
+    margin-right: 8px;
+}
+
+.single-question-box li:nth-child(2), .single-question-box li:nth-child(3)  {
+    font-size: 13px;
+}
+.left-menu {
+    background: #00b894;
+    padding: 21px;
+    height: 200px;
+    margin-top: 25px;
+}
+.left-menu ul li {
+    list-style: none;
+    line-height: 30px;
+}
+
+.left-menu ul li a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}

@@ -31,14 +31,12 @@
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <br>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-                    <%--<h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>--%>
                 </div>
             </form>
+            <h5>Don't have account?? Click <a href="user/registration">here</a> to create account.</h5>
         </div>
     </div>
 </div>
 
-<%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>--%>
 </body>
 </html>

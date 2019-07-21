@@ -15,22 +15,25 @@
 <body>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h5>Update Post</h5>
-            <form action = "/updatePost" method="post">
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                <input type="hidden" name="postId" value="${postId}">
-                <div class="form-group">
-                    <label for="post">Post</label>
-                    <textarea class="form-control" type="text" name="post" id="post">${post}</textarea>
-                    <%--<span class="alert-danger">${nullPost}</span>--%>
-                </div>
-
-                <input type="submit" value="Update Post" name="updatePost" id="updatePost">
-            </form>
-        </div>
+    <div class="col-md-4">
+        <jsp:include page="nav.jsp"></jsp:include>
     </div>
+
+    <div class="col-md-6">
+        <h5>Update Post</h5>
+        <form action = "/updatePost" method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <input type="hidden" name="postId" value="${postId}">
+            <div class="form-group">
+                <label for="post">Post</label>
+                <textarea class="form-control" type="text" name="post" id="post">${post}</textarea>
+                <%--<span class="alert-danger">${nullPost}</span>--%>
+            </div>
+
+            <input type="submit" value="Update Post" name="updatePost" id="updatePost">
+        </form>
+    </div>
+
 </div>
 </body>
 </html>
